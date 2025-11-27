@@ -8,6 +8,23 @@
     - Dockerhub
     - Repository Secrets
 
+## Diagram
+```mermaid
+
+flowchart TD
+    A[New tag is generated and pushed] --> B[GitHub Repository]
+    B --> C[GitHub Actions Workflow Triggered]
+    C --> D[Checkout Code]
+    D --> E[Docker Metadata Action generates tags]
+    E --> F[Set up Docker Buildx]
+    F --> G[Login to DockerHub using Secrets]
+    G --> H[Build Docker Image from Dockerfile]
+    H --> I[Tag Docker Image - latest, major, major.minor, version number]
+    I --> J[Push Docker Image to DockerHub]
+    J --> K[DockerHub Repository]
+ 
+```
+
 ### Part 1: Docker File & Building Images
 
 - The website in "web-content" was created by chatGPT using this prompt: `"Create me a website using two html files (one being an index) and one css file. The website is about how Path of Exile (1) is the best arpg of all time and is heavily inspired from Diablo 2."`
@@ -68,3 +85,5 @@
 - `https://github.com/marketplace/actions/build-and-push-docker-images` Used this to help me understand how to setup my workflow to build and push images
 - `https://docs.docker.com/build/ci/github-actions/manage-tags-labels/` Used this to help me figure out how to change my workflow to work with tags only.
 - `https://semver.org/` Used to help understand semantic versioning.
+
+
