@@ -12,16 +12,16 @@
 ```mermaid
 
 flowchart TD
-    A[New tag is generated and pushed] --> B[GitHub Repository]
-    B --> C[GitHub Actions Workflow Triggered]
+    A[New tag is generated and pushed] --> B[GitHub Repo]
+    B --> C[Github Actions Workflow Triggered]
     C --> D[Checkout Code]
     D --> E[Docker Metadata Action generates tags]
     E --> F[Set up Docker Buildx]
-    F --> G[Login to DockerHub using Secrets]
+    F --> G[Login to Dockerhub using Secrets]
     G --> H[Build Docker Image from Dockerfile]
     H --> I[Tag Docker Image - latest, major, major.minor, version number]
-    I --> J[Push Docker Image to DockerHub]
-    J --> K[DockerHub Repository]
+    I --> J[Push Docker Image to Dockerhub]
+    J --> K[DockerHub Repo]
  
 ```
 
