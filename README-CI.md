@@ -19,7 +19,7 @@ flowchart TD
     E --> F[Set up Docker Buildx]
     F --> G[Login to Dockerhub using Secrets]
     G --> H[Build Docker Image from Dockerfile]
-    H --> I[Tag Docker Image - latest, major, major.minor, version number]
+    H --> I[Tag Docker Image - latest, major, major.minor, version number Ex. 1.0.0]
     I --> J[Push Docker Image to Dockerhub]
     J --> K[DockerHub Repo]
  
