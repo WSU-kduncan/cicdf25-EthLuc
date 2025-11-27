@@ -52,7 +52,7 @@ flowchart TD
 - CI with Github Actions
     - Our workflow triggers on any push to main
     - Whenever a push to main happens, the steps are: check out the repo, setup docker buildx, login to dockerhub using secrets, build the docker image, push to dockerhub
-        - Link to workflow file in my repo `https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/.github/workflows/main.yml`
+        - Link to workflow file in my repo `https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/0a5e7c53c4d0f859f8facd621ec7fb5cf1053c3b/.github/workflows/main.yml`
 - Testing and Validating
     - To test if the workflow is working, do any commit and push to main. Head over to the repository and there now should be either a yellow circle, green checkmark or red x. The yellow circle indicates the workflow is still ongoing (wait a bit), the green checkmark indicates that it worked and had no issues, the red X indicates that something went wrong.
         - If red X, click the red X and see where the workflow failed. Fix the issues and then try another commit and push to main to check if it is working.

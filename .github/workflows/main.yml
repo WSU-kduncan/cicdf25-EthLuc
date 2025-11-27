@@ -2,8 +2,10 @@ name: Build/Push Image now with tags only
 
 on: 
   push:
+    branches:
+      - main
     tags:
-      - "*"
+      - "v*.*.*"
 
 jobs: 
   build-and-push:
@@ -15,6 +17,7 @@ jobs:
 
       - name: Docker metadata
         id: meta
+        if: startsWith(github.ref, 'refs/tags/')
         uses: docker/metadata-action@v5
         with:
           images: ethluc/docker-site
@@ -39,8 +42,8 @@ jobs:
           context: ./web-content
           file: ./web-content/DockerFile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ startsWith(github.ref, 'refs/tags/') && steps.meta.outputs.tags || 'ethluc/docker-site:latest' }}
+          labels: ${{ startsWith(github.ref, 'refs/tags/') && steps.meta.outputs.labels || '' }}
         
   
   
