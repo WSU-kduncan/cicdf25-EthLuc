@@ -18,7 +18,7 @@
 
 ### Part 2: Github Actions & DockerHub
 - Configuring Github Repo Secrets
-    - To create a PAT (for dockerhub), login to dockerhub's website and go into your account settings.
+    - To create a PAT or Private Access Token (for dockerhub), login to dockerhub's website and go into your account settings.
         - Then go down to `Personal access tokens` > `Generate new tokens`.
         - Give your token a name and set its permissions, for this project it is recommended to set them to Read/Write.
     - Setting up Secrets / Making Secrets
@@ -29,8 +29,8 @@
         - Whenever a push to main happens, the steps are: check out the repo, login to dockerhub using secrets, build the docker image, push to dockerhub
             - Link to workflow file in my repo `https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/.github/workflows/main.yml`
     - Testing and Validating
-        - To test if the workflow is working, do any commit and push to main. Head over to the repository and there now should be either a yellow circle, green checkmark or red x. The yellow circle indicates the workflow is still ongoing (wait a bit), the green checkmark indicates that it worked and had no issues, the red x indicates that something went wrong.
-            - If red x, click the red x and see where the workflow failed. Fix the issues and then try another commit and push to main to check if it is working.
+        - To test if the workflow is working, do any commit and push to main. Head over to the repository and there now should be either a yellow circle, green checkmark or red x. The yellow circle indicates the workflow is still ongoing (wait a bit), the green checkmark indicates that it worked and had no issues, the red X indicates that something went wrong.
+            - If red X, click the red X and see where the workflow failed. Fix the issues and then try another commit and push to main to check if it is working.
             - If green checkmark, check your dockerhub repo to make sure that the image was pushed to the dockerhub repo.
-                - To be extra sure you can pull your docker image from your repository and see if it is serving your web-content correctly.
+                - To be extra sure you can pull your docker image from your repository and see if it is serving your web site content correctly.
         - Link to dockerhub repo `https://hub.docker.com/repository/docker/ethluc/docker-site`
