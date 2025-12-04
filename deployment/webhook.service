@@ -1,0 +1,13 @@
+[Unit]
+Description=Listener
+After=network.target
+
+
+[Service]
+User=ubuntu
+Group=ubuntu
+ExecStart=/usr/bin/webhook -hooks /home/ubuntu/hooks.json -hotreload -verbose -ip 0.0.0.0 -port 9000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
