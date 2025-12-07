@@ -1,6 +1,6 @@
 [
   {
-    "id": "github-deploy",
+    "id": "deploy",
     "execute-command": "/home/ubuntu/bashscript.sh",
     "command-working-directory": "/home/ubuntu",
     "response-message": "Deployment started",

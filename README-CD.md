@@ -49,7 +49,7 @@ graph TD
 - Bashscript
     - Our bashscript stops our old container, remove our old container, pulls the new and updated container, then runs the new container to serve our web content.
     - How to test if the script is working: Push a new tag to the repository to trigger a workflow and then check if the docker image is new on the instance by running `docker ps -a`. Alternatively if you made changes to the web content itself you can check at the website's ip.
-    - Link: `https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/deployment/bashscript.sh`
+    - Link: [BashScript](https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/deployment/bashscript.sh)
 
 ## Configuring Webhook listener
 - To install webhook to the EC2 instance do `sudo apt-get install webhook` then `sudo systemctl start webhook`
@@ -57,7 +57,7 @@ graph TD
 - Our webhook definition file runs our bashscript assuming that it is triggered. It is triggered by github sending a payload with our secret token.
     - To verify the definition file was loaded by webhook do `sudo systemctl status webhook`. You should see something like `loaded 1 hook` and the hook name.
     - To check that the webhook is receiving payloads that trigger it, do `sudo journalctl -u webhook -f` and you can monitor the logs in real time. Then try sending a payload to trigger the webhook and see if it works.
-    - Link to definition file: `https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/deployment/hooks.json`
+    - Link: [Definition File](https://github.com/WSU-kduncan/cicdf25-EthLuc/blob/main/deployment/hooks.json)
 - Our webhook service file only starts after the network is up and runs the service as an ubuntu user. The `ExecStart` part is the command starting our service.
     - To enable and start the webhook service do, `sudo systemctl enable webhook.service` and `sudo systemctl start webhook.service`
     - To check if the service is properly running and trigger our bashscript on payload do `sudo journalctl -u webhook.service -f`. Then send a payload and see if it is triggering properly.
@@ -74,5 +74,5 @@ graph TD
 
 ## Resources
 - Website is from project 3 and was created using chatGPT with the prompt `"Create me a website using two html files (one being an index) and one css file. The website is about how Path of Exile (1) is the best arpg of all time and is heavily inspired from Diablo 2."`.
-- `https://github.com/adnanh/webhook` Used a lot of stuff in this like a "template" and edited it afterwards to fit what I needed.
-- `https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32?gi=f0723d945508` Used this to help me understand how to make github actions work alongside webhooks (and also setting up webhooks in general)
+- [Adnanh's Webhook](https://github.com/adnanh/webhook) Used a lot of stuff in this like a "template" and edited it afterwards to fit what I needed.
+- [LevelUpCoding](https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32?gi=f0723d945508) Used this to help me understand how to make github actions work alongside webhooks (and also setting up webhooks in general)
